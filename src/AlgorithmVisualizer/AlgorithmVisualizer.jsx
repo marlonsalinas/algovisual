@@ -139,7 +139,7 @@ export default class AlgorithmVisualizer extends Component {
           </Nav>
         </div>
         <div className="grid">
-          <p>Dijkstra's algorithm is a pathfinding algorithm that finds the shortest or "cheapest" path between 2 or more points. It expands evenly around the start or "source" node in search of the other nodes. Hit the "Visualize Dijkstra's Algorithm" button to see it in action! Click and hold your mouse on any part of the grid to create a maze of walls that the algorithm will work around to get to the end node. Once finished, the algorithm will highlight the shortest, most optimal path between the 2 nodes.</p>
+          <p>Dijkstra's algorithm is a pathfinding algorithm that finds the shortest or "cheapest" path between 2 or more points. It expands evenly around the start or "source" node in search of other nodes. Hit the "Visualize Dijkstra's Algorithm" button to see it in action! Click and hold your mouse on any part of the grid to create a maze of walls that the algorithm will work around to get to the end node. Once finished, the algorithm will highlight the shortest, most optimal path between the 2 nodes.</p>
           {grid.map((row, rowIndex) => {
             return (
               <div key={rowIndex}>
