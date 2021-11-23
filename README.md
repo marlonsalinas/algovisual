@@ -9,7 +9,7 @@ HTML, CSS, Javascript, React, Ruby, Rails, PostgreSQL, Styled Components, Bootst
 ## Getting started: 
 https://serene-euclid-0f4030.netlify.app/
 
-## Screebshots:
+## Screenshots:
 ![image](https://user-images.githubusercontent.com/88510425/143040326-99350227-360f-4132-8733-540634c17efa.png)
 ![image](https://user-images.githubusercontent.com/88510425/143040420-502fc161-54cf-49bc-ab29-7e8122e0cf0d.png)
 ![image](https://user-images.githubusercontent.com/88510425/143040505-b58977cb-0d95-4089-8172-9e32b35510ce.png)
