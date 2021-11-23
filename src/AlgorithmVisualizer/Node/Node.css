@@ -1,9 +1,9 @@
 .node {
-    width: 25px;
-    height: 25px;
-    outline: 1px solid;
-    outline-color: #6e8999;
-    display: inline-block;
+  width: 25px;
+  height: 25px;
+  outline: 1px solid;
+  outline-color: #6e8999;
+  display: inline-block;
 }
 
 .node-start {
@@ -15,66 +15,66 @@
 }
 
 .node-visited {
-    animation-name: visitedAnimation;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
 @keyframes visitedAnimation {
-    0% {
-      transform: scale(0.3);
-      background-color: #b52a5f;
-      border-radius: 100%;
-    }
-  
-    50% {
-      background-color: #ac2ab5;
-    }
-  
-    75% {
-      transform: scale(1.2);
-      background-color: #542ab5;
-    }
-  
-    100% {
-      transform: scale(1);
-      background-color: #2a3fb5;
-    }
+  0% {
+    transform: scale(0.3);
+    background-color: #b52a5f;
+    border-radius: 100%;
   }
   
+  50% {
+    background-color: #ac2ab5;
+  }
+  
+  75% {
+    transform: scale(1.2);
+    background-color: #542ab5;
+  }
+  
+  100% {
+    transform: scale(1);
+    background-color: #2a3fb5;
+  }
+}
+
 .node-wall {
-    background-color: white;
+  background-color: white;
 }
 
 .node-shortest-path {
-    animation-name: shortestPath;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
+  animation-name: shortestPath;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
 @keyframes shortestPath {
-    0% {
-      transform: scale(0.6);
-      background-color: #b14ecf;
-    }
+  0% {
+    transform: scale(0.6);
+    background-color: #32b39d;
+  }
   
-    50% {
-      transform: scale(1.2);
-      background-color: #b14ecf;
-    }
+  50% {
+    transform: scale(1.2);
+    background-color: #31b055;
+  }
   
-    100% {
-      transform: scale(1);
-      background-color: #b14ecf;
-    }
+  100% {
+    transform: scale(1);
+    background-color: #44b031;
+  }
 }

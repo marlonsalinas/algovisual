@@ -2,12 +2,49 @@ import React, { Component } from "react";
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../Algorithms/dijkstraAlgo';
 import './AlgorithmVisualizer.css';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
 
 const startNodeRow = 12;
 const startNodeCol = 12;
 const endNodeRow = 12;
 const endNodeCol = 60;
 
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+`;
+
+const NavItems = styled.ul`
+  text-decoration: none;
+  flex: 1;
+  text-align: left;
+  color: white;
+`;
+
+const NavList = styled.li`
+  display: inline-block;
+  list-style: none;
+  margin: 0px 20px;
+`;
+
+const Title = styled.h1`
+  font-size: 3em;
+  color: white;
+`
+
+const Button = styled.button`
+  background-color: #041621;
+  color: white;
+  font-size: 1em;
+  margin-bottom: 1em;
+  padding: .75em 1em;
+  border: 2px solid #56f7fc;
+  border-radius: 3px;
+`
+
+// const Links = styled.
 
 export default class AlgorithmVisualizer extends Component {
   constructor() {
@@ -22,22 +59,22 @@ export default class AlgorithmVisualizer extends Component {
     const grid = getInititalGrid();
     this.setState({grid});
   }
-
+  
   handleMouseDown(row, col) {
     const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
     this.setState({grid: newGrid, mouseIsPressed: true});
   }
-
+  
   handleMouseEnter(row, col) {
     if (!this.state.mouseIsPressed) return;
     const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
     this.setState({grid: newGrid});
   }
-
+  
   handleMouseUp() {
     this.setState({mouseIsPressed: false});
   }
-
+  
   animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
@@ -52,7 +89,7 @@ export default class AlgorithmVisualizer extends Component {
       }, 5 * i);
     }
   }
-
+  
   animateShortestPath(nodesInShortestPathOrder) {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
@@ -76,10 +113,30 @@ export default class AlgorithmVisualizer extends Component {
     const {grid, mouseIsPressed} = this.state;
     return (
       <React.Fragment>
-        <button onClick = {() => this.visualizeDijkstra()}>
-          Visualize Dijkstra's Algorithm
-        </button>
+        <div className='navbar'>
+          <Nav>
+            <NavItems>
+              <NavList>
+                <Title>AlgoVisual</Title>
+              </NavList>
+              <NavList>
+                <Button onClick = {() => this.visualizeDijkstra()}>
+                Visualize Dijkstra's Algorithm
+                </Button>
+              </NavList>
+              <NavList>
+                <Button onClick = {() => this.clearGrid}>Reset the grid</Button>
+              </NavList>
+              <NavList>
+                <Link to='/feedback' id='linkto'>
+                  Submit Feedback
+                </Link>
+              </NavList>
+            </NavItems>
+          </Nav>
+        </div>
         <div className="grid">
+          <p>Dijkstra's algorithm is a pathfinding algorithm that finds the shortest or "cheapest" path between 2 points. It expands evenly around the start node in search of the end node. Hit the "Visualize Dijkstra's Algorithm" button to see it in action! Click and hold your mouse on any part of the grid to create a maze of walls that the algorithm will work around to get to the end node. Once finished, the algorithm will highlight the shortest, most optimal path between the 2 nodes.</p>
           {grid.map((row, rowIndex) => {
             return (
               <div key={rowIndex}>
