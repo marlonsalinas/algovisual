@@ -42,9 +42,8 @@ const Button = styled.button`
   padding: .75em 1em;
   border: 2px solid #56f7fc;
   border-radius: 3px;
+  cursor: pointer;
 `
-
-// const Links = styled.
 
 export default class AlgorithmVisualizer extends Component {
   constructor() {
@@ -108,6 +107,10 @@ export default class AlgorithmVisualizer extends Component {
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(endNode);
     this.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
   }
+
+  clearGrid() {
+    window.location.reload('Refresh')
+  }
   
   render() {
     const {grid, mouseIsPressed} = this.state;
@@ -125,7 +128,7 @@ export default class AlgorithmVisualizer extends Component {
                 </Button>
               </NavList>
               <NavList>
-                <Button onClick = {() => this.clearGrid}>Reset the grid</Button>
+                <Button onClick = {() => this.clearGrid(this)}>Reset the grid</Button>
               </NavList>
               <NavList>
                 <Link to='/feedback' id='linkto'>
@@ -136,7 +139,7 @@ export default class AlgorithmVisualizer extends Component {
           </Nav>
         </div>
         <div className="grid">
-          <p>Dijkstra's algorithm is a pathfinding algorithm that finds the shortest or "cheapest" path between 2 points. It expands evenly around the start node in search of the end node. Hit the "Visualize Dijkstra's Algorithm" button to see it in action! Click and hold your mouse on any part of the grid to create a maze of walls that the algorithm will work around to get to the end node. Once finished, the algorithm will highlight the shortest, most optimal path between the 2 nodes.</p>
+          <p>Dijkstra's algorithm is a pathfinding algorithm that finds the shortest or "cheapest" path between 2 or more points. It expands evenly around the start or "source" node in search of the other nodes. Hit the "Visualize Dijkstra's Algorithm" button to see it in action! Click and hold your mouse on any part of the grid to create a maze of walls that the algorithm will work around to get to the end node. Once finished, the algorithm will highlight the shortest, most optimal path between the 2 nodes.</p>
           {grid.map((row, rowIndex) => {
             return (
               <div key={rowIndex}>

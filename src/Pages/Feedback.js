@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const FeedbackDiv = styled.div`
+    border: 1px solid #56f7fc;
+    padding: 15px;
+`
 
 function Feedback(props) {
     const [ newForm, setNewForm ] = useState({
@@ -27,10 +34,10 @@ function Feedback(props) {
 
     const loaded = () => {
         return props.feedback.map((newFeedback) => (
-            <div key={newFeedback.id}>
+            <FeedbackDiv key={newFeedback.id}>
                 <p>{newFeedback.date}</p>
                 <p>{newFeedback.summary}</p>
-            </div>
+            </FeedbackDiv>
         ))
     }
 
@@ -40,23 +47,36 @@ function Feedback(props) {
 
     return (
         <section>
+            <Link to='/' id='linkto'>
+                Back to the visualizer
+            </Link>
             <form onSubmit={handleSubmit}>
-                  <input
+                <div class='mb-3'>
+                    <label for='date' class='form-label'>Date   </label>
+                    <input
+                    class='form-control'
                     onChange={onChange}
                     name='date'
-                    placeholder='Date (Ex. 11/20/21)'
+                    placeholder='Ex. 11/20/21'
                     type='text'
                     id='date'>
                     </input>
-                    <textarea
+                </div>
+                <div class='mb-3'>
+                    <label for='feedback' class='form-label'>Feedback   </label>
+                    <input
+                    class='form-control'
                     onChange={onChange}
                     name='summary'
-                    placeholder='Feedback'
+                    placeholder='Any comments, suggestions, or criticisms'
                     type='text'
                     id='summary'>
-                    </textarea>
+                    </input>
+                </div>
                     <input className='create' type='submit' value='Submit Feedback'/>
                 </form>
+                <br></br>
+                <br></br>
             {props.feedback ? loaded(): loading()}
         </section>
     )
